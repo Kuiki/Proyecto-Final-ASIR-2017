@@ -1,0 +1,16 @@
+#body{
+	height: 500px auto;
+	background: yellow;
+}
+
+#body .entry{
+	float: left;
+	width: 31%;
+	height: 20%;
+	border: 1px solid black;
+	margin: 8px;
+	height: 200px;
+	background: green;
+}
+
+
