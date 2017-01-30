@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog Personal</title>
+	<script src="jquery-3.1.1.js" type="text/javascript"></script>   
+	<style type="text/css">
+		div{
+			margin: 0px auto;
+		}
+/* CUERPO */
+
+		#entrada{
+			width: 1000px;
+			min-height: 900px;
+			margin-top: 5px;
+			height: auto;
+			height: auto;
+			overflow: auto;
+		}
+		
+		#entrada>div{
+			border:1px solid black;
+			float: left;
+			width: 30.5%;
+			height: 250px;
+			margin: 13px;
+			position: relative;
+			display: inline;
+		}
+
+		
+		#pie{
+			width: 1000px;
+			height: 150px;	
+			background: #5f5f5f;
+		}
+
+		/* CATEGORIAS */
+
+		#categorias {
+			width: 1000px;
+			height: 50px;
+			right: 0px;
+			left: 0px;
+			position: relative;
+		}
+
+		#categorias>ul{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		#categorias>ul>a>li{
+			float: left;
+			width: 20%;
+			background: #5f5f5f;
+			margin: 0px;
+			padding: 15px 0px;
+			text-align: center;
+			list-style: none;
+			color:white;
+			font-size: 20px;
+			font-family: Arial;
+		}
+
+		#categorias>ul>a>li:hover{
+			background: black;
+		}
+
+		#categorias>ul>a>li:active{
+			background: green;
+		}
+
+/* CABEZA */
+		#cabeza{
+			width: 1000px;
+			height: 110px;
+			background: #5f5f5f;
+		}	
+
+		#cabeza>div{
+			width: 50%;
+			height: 100%;
+			margin:0px;
+			padding: 0px;
+			float: left;
+		}
+
+
+		#cabeza #logo>*{
+			float: left;
+			margin: 5px;
+		}
+		#cabeza>div>img{
+			width: 100px;
+			height: 100px;
+		}
+		#cabeza>div>h1{
+			font-family: Arial;
+			top: 25px;
+			position: relative;
+			color:white;
+		}
+
+		#cabeza #login>form{
+			width: 60%;
+			font:normal 12px Arial;
+			color:white;
+			padding: 25px 0px 25px 200px;
+		}
+		#cabeza #login>form>span{
+			display: inline-block;
+			width: 70px;
+		}
+
+		#cabeza #login>form>input{
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+
+	</style>
+
+</head>
+<body>
+ 		<div id="cabeza">
+			<div id="logo">
+				<img src="logo.png">
+				<h1>Tuto Informático</h1>
+			</div>
+			<div id="login">
+				<form>
+					<span>Usuario:</span>
+        			<input type="text" id="name">
+        			<br>
+    				<span>Contraseña:</span>
+    				<input type="text" id="lastname">
+    				<br>
+    				<input type="submit" name="sesion" value="Iniciar Sesión">
+    				<input type="submit" name="nueva" value="Registrate">
+				</form>
+			</div>
+		</div>
+		<div id="categorias">
+			<ul>
+				<a href=""><li>Windows</li></a>
+				<a href=""><li>GNU/Linux</li></a>
+				<a href=""><li>Raspberry</li></a>
+				<a href=""><li>Android</li></a>
+				<a href=""><li>PC'S</li></a>
+			</ul>
+
+		</div>
+		<div id="entrada">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>				
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+		</div>
+		<div id="pie"></div>
+		<script type="text/javascript">
+			
+
+		</script>
+</body>
+</html>
