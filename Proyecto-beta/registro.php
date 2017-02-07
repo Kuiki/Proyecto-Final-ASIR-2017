@@ -71,8 +71,8 @@
 
 		$codusuario=$letusuario.$numero;
 
-		$consulta2="INSERT INTO USUARIOS VALUES('".$codusuario."','".$_POST['Usuario']."','".$_POST['Nombre']."','".$_POST['Apellidos']."','".$_POST['Sexo']."','".$_POST['Nacimiento']."','".$_POST['Correo']."','Estandar','".md5($_POST['Contraseña']);
-
+		$consulta2="INSERT INTO USUARIOS VALUES('".mb_strtoupper($codusuario)."','".$_POST['Usuario']."','".ucwords($_POST['Nombre'])s."','".ucwords($_POST['Apellidos'])."','".$_POST['Sexo']."','".$_POST['Nacimiento']."','".$_POST['Correo']."','Estandar','".md5($_POST['Contraseña'])."')";
+s
 	 ?>
 <?php endif ?>
 </body>
