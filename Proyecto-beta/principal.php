@@ -37,7 +37,9 @@
 					if(!is_null($fila)){
 						if($fila['Alias']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
 							echo "<img id='avatar' src='user.png'><br>";
-							echo "<span>Bienvenido</span> <a href='principal.php'>".$_POST['user']."</a>";
+							echo "<a href='panel1.php?user=".$fila['Alias']."'>".$_POST['user']."</a>";
+							echo "<br>";
+							echo "<a href='' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
 							echo "Usuario o Contraseña incorrecta";
 						}
@@ -56,7 +58,7 @@
     				<span>Contraseña:</span>
     				<input type="password" name="pass" required>
     				<br>
-    				<a style="font-size:15px; margin-left: 75px;" href="http://localhost/Proyecto-beta/registro.php">Registrate</a>
+    				<a style="font-size:13px; margin-left: 70px;" href="http://localhost/Proyecto_IAW/Proyecto-beta/registro.php">Registrate</a>
     				<input type="submit" name="sesion" value="Iniciar Sesión">
 				</form>
 			<?php endif ?>
