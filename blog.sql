@@ -35,6 +35,7 @@ CREATE TABLE `CATEGORIAS` (
 
 LOCK TABLES `CATEGORIAS` WRITE;
 /*!40000 ALTER TABLE `CATEGORIAS` DISABLE KEYS */;
+INSERT INTO `CATEGORIAS` VALUES ('AND004','Android'),('LIN001','GNU/Linux'),('PCS005','PCs'),('RAS003','Raspberry'),('WIN002','Windows');
 /*!40000 ALTER TABLE `CATEGORIAS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,8 +75,9 @@ DROP TABLE IF EXISTS `ENTRADAS`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ENTRADAS` (
   `IdEntrada` char(7) NOT NULL,
+  `Titulo` varchar(100) NOT NULL,
   `FechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Contenido` varchar(5000) DEFAULT NULL,
+  `Contenido` blob,
   `Publicado` char(1) DEFAULT NULL,
   `FechaPublicacion` datetime DEFAULT NULL,
   `UltimaModificacion` datetime DEFAULT NULL,
@@ -149,7 +151,7 @@ CREATE TABLE `USUARIOS` (
 
 LOCK TABLES `USUARIOS` WRITE;
 /*!40000 ALTER TABLE `USUARIOS` DISABLE KEYS */;
-INSERT INTO `USUARIOS` VALUES ('lual001','Kuiki','Luigui','Alvarez Ramirez','H','1995-07-28','luigui916@gmail.com','Administrador','4cea49b56f08bcdcfc92844186c20ca6');
+INSERT INTO `USUARIOS` VALUES ('ANME002','anita96','Ana','Meleiro Sanchez','M','1997-03-04','ana97@gmail.com','Estandar','786d67fd42a7c49d159cba262f3ddb75'),('FEMO004','Felipe','Felipe','Montes Sierra','H','1996-06-01','feli91@hotmail.com','Estandar','81dc9bdb52d04dc20036dbd8313ed055'),('lual001','Kuiki','Luigui','Alvarez Ramirez','H','1995-07-28','luigui916@gmail.com','Administrador','4cea49b56f08bcdcfc92844186c20ca6'),('MACA004','alpachilo','Manuel','Carrasco Gomez','H','2017-02-17','alpachilo12@gmail.com','Estandar','81dc9bdb52d04dc20036dbd8313ed055');
 /*!40000 ALTER TABLE `USUARIOS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07  9:12:59
+-- Dump completed on 2017-02-10 19:32:01
