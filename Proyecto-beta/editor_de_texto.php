@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<title>Content Editable</title>
+<title></title>
 <style>
 #txtbox, #text {
 width:800px;
@@ -43,7 +42,6 @@ if (x!="h" || x!="s"){
 </head>
 <body>
 
-<p style="width:800px;height:auto;padding:10px;background:#EFEFEF">
 <button onclick="init('bold')">Negrita</button>
 <button onclick="init('italic')">Itálica</button>
 <button onclick="init('insertimage')">Imagen</button>
@@ -63,6 +61,12 @@ if (x!="h" || x!="s"){
 <p>Escribe aquí ...</p>
 <p>Etc ...</p>
 </div>
+<form method="post">
 <textarea id="text" name="text"></textarea>
+<input type="submit" name="enviar" value="enviar">
+</form>
+	<?php 
+		echo "hola mundo";
+	?>
 </body>
 </html>

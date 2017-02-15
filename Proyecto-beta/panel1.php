@@ -59,17 +59,18 @@
 				<a href=""><li>Android</li></a>
 				<a href=""><li>PC'S</li></a>
 			</ul>
-
+		</div>
 		</div>
 		<div id="entrada">
-		<h1>Entradas</h1>
+		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user=alpachilo'>[Añadir Nueva Entrada]</a>"; ?></span>
+		
 
 		<?php  
 		
 			$conexion=mysqli_connect("localhost","root","jallmay1995","blog");
-			$consulta="SELECT E.* FROM ENTRADAS E JOIN USUARIOS U ON E.CodUsuario=U.CodUsuario WHERE U.Alias='".$_GET['user']."'";
-			$resultado=mysqli_query($conexion,$consulta);
-			$numero=mysqli_num_rows($resultado);
+			$consulta1="SELECT count(*) from ENTRADAS e JOIN USUARIOS u on e.CodUsuario=u.CodUsuario where Alias='".$_GET['user']."'";
+			$resultado1=mysqli_query($conexion,$consulta1);
+			$numero=(int) mysqli_fetch_row($resultado1);
 		?>
 
 		<?php if ($numero!=0): ?>
@@ -81,15 +82,27 @@
 				<th colspan="2">Editar</th>
 				<th>Comentarios</th>
 			</tr>
-			<tr>
-				<td><a href="">Instalar GNU/Linux desde cero</a></td>
-				<td>Linux</td>
-				<td>27/01/2016</td>
-				<td><a href="">editar</a></td>
-				<td><a href="">borrar</a></td>
-				<td><a href="">comentarios</a></td>
-			</tr>
+
+			<?php 
+				$consulta2="SELECT e.Titulo, c.NombreCategoria, e.UltimaModificacion, count(Comentario) Comentarios FROM ENTRADAS e JOIN USUARIOS u ON u.CodUsuario=e.CodUsuario LEFT JOIN PERTENECE p ON e.IdEntrada=p.IdEntrada LEFT JOIN CATEGORIAS c ON p.CodCategoria=c.CodCategoria LEFT JOIN COMENTARIOS co ON e.IdEntrada=co.IdEntrada where u.Alias='alpachilo' group by e.Titulo,c.NombreCategoria,e.UltimaModificacion";
+
+				$resultado2=mysqli_query($conexion,$consulta2);
+
+				while ($fila=mysqli_fetch_array($resultado2)) {
+					echo "<tr><td>";
+					echo "<a href=''>".$fila['Titulo']."</a></td><td>";
+					echo $fila['NombreCategoria']."</td><td>";
+					echo $fila['UltimaModificacion']."</td><td>";
+					echo "<a href=''>editar</a></td><td>";
+					echo "<a href=''>borrar</a></td><td>";
+					echo "<a href=''>comentarios(".$fila['Comentarios'].")</a></td></tr>";
+
+				}
+
+			 ?>
+			
 			</table>
+
 		<?php else: ?>
 			<h3>No tienes ningna entrada creada ...</h3>
 		<?php endif ?>
