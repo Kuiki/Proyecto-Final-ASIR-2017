@@ -46,13 +46,13 @@
 		font: bold 30px Arial;
 		margin:0px 5px;
 		position: relative;
-		bottom: 40px;
+		bottom: 0px;
 	}
 	#menu {
 		background: #5f5f5f;
 		width: 800px;
 		position: relative;
-		top:45px;
+		top:5px;
 		left: 5px;
 	}
 
@@ -86,6 +86,14 @@
 </script>
 </head>
 <body>
+	<?php 
+	session_start();
+	if(empty($_SESSION['Usuario']) || empty($_GET['user'])){
+		echo "<h1>Lo siento, no puedes entrar ...</h1>";
+		session_destroy();
+		exit();
+	}
+ 	?>
 	<?php if (!isset($_POST['guardar'])): ?>
 	<div id="padre" style=" width: 1000px;margin:0 auto;">
 	<div id="cabeza">
@@ -96,17 +104,19 @@
 	</div>
 	<div id="categorias">
 			<ul>
-				<a href=""><li>Windows</li></a>
-				<a href=""><li>GNU/Linux</li></a>
-				<a href=""><li>Raspberry</li></a>
-				<a href=""><li>Android</li></a>
-				<a href=""><li>PC'S</li></a>
+				<a href="principal.php?categoria=windows"><li>Windows</li></a>
+				<a href="principal.php?categoria=linux"><li>GNU/Linux</li></a>
+				<a href="principal.php?categoria=raspberry"><li>Raspberry</li></a>
+				<a href="principal.php?categoria=android"><li>Android</li></a>
+				<a href="principal.php?categoria=pc"><li>PC'S</li></a>
 			</ul>
 
 		</div>
 
 	<div id="editor";">
 		<h1>Nueva Entrada</h1>
+<form method="post">
+		<input id="titulo" type="text" name="titulo" value=""><br>
 		<div id="menu">
 		<center>
 		<button onclick="init('bold')"><b>N</b></button>
@@ -124,8 +134,6 @@
 		<button onclick="init('h')">HTML</button>
 		</center>
 		</div>
-<form method="post">
-		<input id="titulo" type="text" name="titulo" value=""><br>
 		<div id="txtbox" contenteditable="true">
 		<h2>Título</h2>
 		<p>Escribe aquí ...</p>
@@ -155,25 +163,31 @@
 
 		<?php 
 			$conexion=mysqli_connect("localhost","root","jallmay1995","blog");
-			$id="";
+			$id=substr($_GET['user'],0, 4);
+			$entrada=rand(100,999);
+			$IdEntrada=mb_strtoupper($id.$entrada);
+
+			$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','N','MACA004')";
 
 			if(!empty($_POST['categoria'])){
-				$id="SELECT CodCategoria FROM CATEGORIAS WHERE NombreCategoria='".$_POST['categoria']";
-				$resul=mysqli_query($conexion,$id);
-
+				$codcategoria="SELECT CodCategoria FROM CATEGORIAS WHERE NombreCategoria LIKE '%".$_POST['categoria']."'";
+				$resultcategoria=mysqli_query($conexion,$codcategoria);
+				$fila=mysqli_fetch_row($resultcategoria);
+				$consulta2="INSERT INTO PERTENECE (CodCategoria,IdEntrada) VALUES ('".$fila[0]."','".$IdEntrada."')";
 
 			}else{
-				$categoria='Sin Categoria';
+				$consulta2="INSERT INTO PERTENECE (CodCategoria,IdEntrada) VALUES('SIN000','".$IdEntrada."')";
 			}
 			
-			$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,Visitas,CodUsuario) VALUES ('ALPA001','".$_POST['titulo']."','".$_POST['text']."','N','MACA004')";
 
-			$consulta2="INSERT INTO PERTENECE ('".$id."','".$categoria."'";
+			$insertarentrada=mysqli_query($conexion,$consulta1);
+			$insertarcategoria=mysqli_query($conexion,$consulta2);
 
-			var_dump($consulta1);
-			echo "<br>";
-			var_dump($consulta2);
-
+			if($insertarcategoria==true && insertarentrada==true){
+				echo "Entrada creada";
+			}else{
+				echo "No se pudo crear la entrada";
+			}
 
 		 ?>
 	<?php endif ?>

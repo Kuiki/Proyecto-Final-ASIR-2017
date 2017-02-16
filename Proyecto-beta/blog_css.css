@@ -110,16 +110,17 @@
 		}
 
 		#cabeza #login #user {
-			width: 100%;
+			width: 50%;
 			height:100%;
+			float: right;
 		}
 
 		#cabeza #login #user #avatar{
 			width: 50px;
 			height: 50px;
-			margin: 4% 0% 0% 70%;
+			margin: 6% 0% 0% 0%;
 		}
-		#cabeza #login #user a{
-			position: relative;
-			left: 70%;
+
+		a{
+			text-decoration: none;
 		}

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,26 +30,42 @@
 			<?php if(!empty($_POST['user'])): ?>
 
 				<div id="user">
+				<center>
 				<?php 
 
-					$consulta="SELECT Alias, Contraseña FROM USUARIOS WHERE Alias='".$_POST['user']."';";
+					$consulta="SELECT * FROM USUARIOS WHERE Usuario='".$_POST['user']."';";
 					$resultado=mysqli_query($conexion,$consulta);
+					mysqli_close($conexion);
 					$fila=mysqli_fetch_array($resultado);
 					if(!is_null($fila)){
-						if($fila['Alias']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
+						if($fila['Usuario']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
+							$_SESSION['Usuario']=$_POST['user'];
 							echo "<img id='avatar' src='user.png'><br>";
-							echo "<a href='panel1.php?user=".$fila['Alias']."'>".$_POST['user']."</a>";
+							echo "<a href='panel1.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
-							echo "<a href='' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<script type='text/javascript'>alert('Bienvenido!!!');</script>";
 						}else {
-							echo "Usuario o Contraseña incorrecta";
+							echo "<script type='text/javascript'>alert('¡Usuario o Contraseña incorrecta!');
+								var pagina='http://localhost/Proyecto_IAW/Proyecto-beta/principal.php'
+								function redireccionar(){
+								location.href=pagina;
+							  } 
+							  setTimeout ('redireccionar()', 200);
+							</script>";
 						}
 					}else {
-						echo "El Usuario no existe";
+						echo "<script type='text/javascript'>alert('¡El usuario no existe!');
+								var pagina='http://localhost/Proyecto_IAW/Proyecto-beta/principal.php'
+								function redireccionar(){
+								location.href=pagina;
+							  } 
+							  setTimeout ('redireccionar()', 200);
+						</script>";
 					}
 
 				 ?>
-				 </span>
+				 </center>
 				 </div>
 			<?php else: ?>
 				<form method="post">
@@ -67,11 +84,11 @@
 		</div>
 		<div id="categorias">
 			<ul>
-				<a href=""><li>Windows</li></a>
-				<a href=""><li>GNU/Linux</li></a>
-				<a href=""><li>Raspberry</li></a>
-				<a href=""><li>Android</li></a>
-				<a href=""><li>PC'S</li></a>
+				<a href="principal.php?categoria=windows"><li>Windows</li></a>
+				<a href="principal.php?categoria=linux"><li>GNU/Linux</li></a>
+				<a href="principal.php?categoria=raspberry"><li>Raspberry</li></a>
+				<a href="principal.php?categoria=android"><li>Android</li></a>
+				<a href="principal.php?categoria=pc"><li>PC'S</li></a>
 			</ul>
 
 		</div>

@@ -67,7 +67,7 @@
 		$resultado2=mysqli_query($conexion,$consulta2);
 		mysqli_close($conexion);
 
-		echo "<script>
+		echo "<script type='text/javascript'>
 				alert('Usuario Creado');
 				var pagina='http://localhost/Proyecto_IAW/Proyecto-beta/principal.php'
 				function redireccionar(){

@@ -31,6 +31,14 @@
 	</style>
 </head>
 <body>
+<?php 
+	session_start();
+	if(empty($_SESSION['Usuario']) || empty($_GET['user'])){
+		echo "<h1>Lo siento, no puedes entrar ...</h1>";
+		session_destroy();
+		exit();
+	}
+ ?>
 <div id="cabeza">
 			<div id="logo">
 				<img src="logo.png">
@@ -39,6 +47,7 @@
 			<div id="login">
 
 				<div id="user">
+					<center>
 					<img id="avatar" src='user.png'><br>
 					<?php 
 						echo "<a id='usuario' href='panel1.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
@@ -46,32 +55,34 @@
 					 <br>
 					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
 
-				 </span>
+					</center>
 				 </div>
 				
 			</div>
 		</div>
 		<div id="categorias">
 			<ul>
-				<a href=""><li>Windows</li></a>
-				<a href=""><li>GNU/Linux</li></a>
-				<a href=""><li>Raspberry</li></a>
-				<a href=""><li>Android</li></a>
-				<a href=""><li>PC'S</li></a>
+				<a href="principal.php?categoria=windows"><li>Windows</li></a>
+				<a href="principal.php?categoria=linux"><li>GNU/Linux</li></a>
+				<a href="principal.php?categoria=raspberry"><li>Raspberry</li></a>
+				<a href="principal.php?categoria=android"><li>Android</li></a>
+				<a href="principal.php?categoria=pc"><li>PC'S</li></a>
 			</ul>
 		</div>
 		</div>
 		<div id="entrada">
-		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user=alpachilo'>[Añadir Nueva Entrada]</a>"; ?></span>
+		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user='".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
 		
 
-		<?php  
-		
+		<?php
+			
 			$conexion=mysqli_connect("localhost","root","jallmay1995","blog");
-			$consulta1="SELECT count(*) from ENTRADAS e JOIN USUARIOS u on e.CodUsuario=u.CodUsuario where Alias='".$_GET['user']."'";
+			$consulta1="SELECT count(*) from ENTRADAS e JOIN USUARIOS u on e.CodUsuario=u.CodUsuario where Usuario='".$_GET['user']."'";
 			$resultado1=mysqli_query($conexion,$consulta1);
 			$numero=(int) mysqli_fetch_row($resultado1);
 		?>
+
+
 
 		<?php if ($numero!=0): ?>
 			<table>
@@ -84,7 +95,7 @@
 			</tr>
 
 			<?php 
-				$consulta2="SELECT e.Titulo, c.NombreCategoria, e.UltimaModificacion, count(Comentario) Comentarios FROM ENTRADAS e JOIN USUARIOS u ON u.CodUsuario=e.CodUsuario LEFT JOIN PERTENECE p ON e.IdEntrada=p.IdEntrada LEFT JOIN CATEGORIAS c ON p.CodCategoria=c.CodCategoria LEFT JOIN COMENTARIOS co ON e.IdEntrada=co.IdEntrada where u.Alias='alpachilo' group by e.Titulo,c.NombreCategoria,e.UltimaModificacion";
+				$consulta2="SELECT e.Titulo, c.NombreCategoria, e.UltimaModificacion, count(Comentario) Comentarios FROM ENTRADAS e JOIN USUARIOS u ON u.CodUsuario=e.CodUsuario LEFT JOIN PERTENECE p ON e.IdEntrada=p.IdEntrada LEFT JOIN CATEGORIAS c ON p.CodCategoria=c.CodCategoria LEFT JOIN COMENTARIOS co ON e.IdEntrada=co.IdEntrada where u.Usuario='".$_GET['user']."' group by e.Titulo,c.NombreCategoria,e.UltimaModificacion";
 
 				$resultado2=mysqli_query($conexion,$consulta2);
 
