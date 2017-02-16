@@ -84,6 +84,12 @@
 	}
 
 </script>
+<script type="text/javascript">
+		function inicio(){
+			location.href='principal.php';
+		}
+
+	</script>
 </head>
 <body>
 	<?php 
@@ -94,12 +100,26 @@
 		exit();
 	}
  	?>
+ 	
 	<?php if (!isset($_POST['guardar'])): ?>
 	<div id="padre" style=" width: 1000px;margin:0 auto;">
 	<div id="cabeza">
 		<div id="logo">
-			<img src="logo.png">
+			<img src="logo.png" onclick="inicio()">
 			<h1>Tuto Informático</h1>
+		</div>
+		<div id="login">
+				<div id="user">
+					<center>
+					<img id="avatar" src='user.png'><br>
+					<?php 
+						echo "<a id='usuario' href='panel1.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
+					 ?>
+					 <br>
+					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
+
+					</center>
+				 </div>
 		</div>
 	</div>
 	<div id="categorias">

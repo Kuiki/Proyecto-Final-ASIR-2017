@@ -3,13 +3,18 @@
 <html>
 <head>
 	<title>Blog Personal</title>
-	<script src="jquery-3.1.1.js" type="text/javascript"></script>  
 	<link rel="stylesheet" type="text/css" href="blog_css.css"> 
 	<style type="text/css">
 		div{
 			margin: 0px auto;
 		}
 	</style>
+	<script type="text/javascript">
+		function inicio(){
+			location.href='principal.php';
+		}
+
+	</script>
 
 </head>
 <body>
@@ -23,13 +28,20 @@
 		?>
  		<div id="cabeza">
 			<div id="logo">
-				<img src="logo.png">
+				<img src="logo.png" onclick="inicio()">
 				<h1>Tuto Informático</h1>
 			</div>
 			<div id="login">
-			<?php if(!empty($_POST['user'])): ?>
-
-				<div id="user">
+			<div id="user">
+			<?php if (!empty($_SESSION)): ?>
+				<center>
+				<?php 
+					echo "<img id='avatar' src='user.png'><br>";
+							echo "<a href='panel1.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
+							echo "<br>";
+							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+				 ?>
+			<?php elseif(!empty($_POST['user'])): ?>
 				<center>
 				<?php 
 
@@ -40,11 +52,17 @@
 					if(!is_null($fila)){
 						if($fila['Usuario']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
 							$_SESSION['Usuario']=$_POST['user'];
+
+							if ($fila['TipoUsuario']=='Administrador') {
+								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['TipoUsuario']."!!!');</script>";
+							}else {
+								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['Usuario']."!!!');</script>";
+							}
+
 							echo "<img id='avatar' src='user.png'><br>";
 							echo "<a href='panel1.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
 							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
-							echo "<script type='text/javascript'>alert('Bienvenido!!!');</script>";
 						}else {
 							echo "<script type='text/javascript'>alert('¡Usuario o Contraseña incorrecta!');
 								var pagina='http://localhost/Proyecto_IAW/Proyecto-beta/principal.php'
@@ -66,7 +84,6 @@
 
 				 ?>
 				 </center>
-				 </div>
 			<?php else: ?>
 				<form method="post">
 					<span>Usuario:</span>
@@ -79,7 +96,7 @@
     				<input type="submit" name="sesion" value="Iniciar Sesión">
 				</form>
 			<?php endif ?>
-				
+				</div>
 			</div>
 		</div>
 		<div id="categorias">

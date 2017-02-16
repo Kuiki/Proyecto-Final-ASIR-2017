@@ -1,3 +1,4 @@
+
 /* CUERPO */
 
 		#entrada{
@@ -52,6 +53,7 @@
 			color:white;
 			font-size: 20px;
 			font-family: Arial;
+			transition: background 0.3s;
 		}
 
 		#categorias>ul>a>li:hover{
@@ -85,6 +87,7 @@
 		#cabeza>div>img{
 			width: 100px;
 			height: 100px;
+			cursor: pointer;
 		}
 		#cabeza>div>h1{
 			font-family: Arial;
@@ -93,13 +96,13 @@
 			color:white;
 		}
 
-		#cabeza #login>form{
-			width: 60%;
+		#cabeza #login #user>form{
+			width: 100%;
 			font:normal 12px Arial;
 			color:white;
-			padding: 25px 0px 25px 200px;
+			padding: 25px 0px;
 		}
-		#cabeza #login>form>span{
+		#cabeza #login #user>form>span{
 			display: inline-block;
 			width: 70px;
 		}
@@ -123,4 +126,9 @@
 
 		a{
 			text-decoration: none;
+			font-family: Arial;
+		}
+
+		a:visited{
+			color:#2B1F73;
 		}

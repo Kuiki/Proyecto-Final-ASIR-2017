@@ -29,6 +29,12 @@
 			text-align: center;
 		}
 	</style>
+	<script type="text/javascript">
+		function inicio(){
+			location.href='principal.php';
+		}
+
+	</script>
 </head>
 <body>
 <?php 
@@ -41,7 +47,7 @@
  ?>
 <div id="cabeza">
 			<div id="logo">
-				<img src="logo.png">
+				<img src="logo.png" onclick="inicio()">
 				<h1>Tuto Informático</h1>
 			</div>
 			<div id="login">
@@ -71,7 +77,7 @@
 		</div>
 		</div>
 		<div id="entrada">
-		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user='".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
+		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user=".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
 		
 
 		<?php
@@ -79,12 +85,12 @@
 			$conexion=mysqli_connect("localhost","root","jallmay1995","blog");
 			$consulta1="SELECT count(*) from ENTRADAS e JOIN USUARIOS u on e.CodUsuario=u.CodUsuario where Usuario='".$_GET['user']."'";
 			$resultado1=mysqli_query($conexion,$consulta1);
-			$numero=(int) mysqli_fetch_row($resultado1);
+			$numero=mysqli_fetch_row($resultado1);
 		?>
 
 
 
-		<?php if ($numero!=0): ?>
+		<?php if ($numero[0]!=0): ?>
 			<table>
 			<tr id="1" style="background: #5f5f5f; color:white">
 				<th>Titulo</th>

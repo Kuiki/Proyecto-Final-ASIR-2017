@@ -6,11 +6,13 @@
 		form{
 			width: 600px;
 			margin: 0px auto;
+
 		}
 
 		fieldset{
 			padding: 80px;
 			margin: 50px 0px;
+
 		}
 		span{
 			display: inline-block;
@@ -27,6 +29,12 @@
 			margin: 0px auto;
 		}
 	</style>
+	<script type="text/javascript">
+		function inicio(){
+			location.href='principal.php';
+		}
+
+	</script>
 </head>
 <body>
 <?php if (!isset($_POST['Nombre'])): ?>
