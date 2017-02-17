@@ -139,19 +139,19 @@
 		<input id="titulo" type="text" name="titulo" value=""><br>
 		<div id="menu">
 		<center>
-		<button onclick="init('bold')"><b>N</b></button>
-		<button onclick="init('italic')"><i>I</i></button>
-		<button onclick="init('underline')"><u>U</u></button>
-		<button onclick="init('justifycenter')">Centrado</button>
-		<button onclick="init('justifyfull')">Ordenado</button>
-		<button onclick="init('justifyleft')">Izquierda</button>
-		<button onclick="init('justifyright')">Derecha</button>
-		<button onclick="init('increasefontsize')">Fuente +</button>
-		<button onclick="init('inserthorizontalrule')">Línea Hr.</button>
-		<button onclick="init('redo')">Rehacer</button>
-		<button onclick="init('undo')">Deshacer</button>
-		<button onclick="init('s')">Real</button>
-		<button onclick="init('h')">HTML</button>
+		<input type="button" value="N" onclick="init('bold')"></input>
+		<input type="button" value="I" onclick="init('italic')"></input>
+		<input type="button" value="U" onclick="init('underline')"></input>
+		<input type="button" value="Centrado" onclick="init('justifycenter')"></input>
+		<input type="button" value="Ordenado" onclick="init('justifyfull')"></input>
+		<input type="button" value="Izq" onclick="init('justifyleft')"></input>
+		<input type="button" value="Der" onclick="init('justifyright')"></input>
+		<input type="button" value="Fuente +" onclick="init('increasefontsize')"></input>
+		<input type="button" value="Linea HR" onclick="init('inserthorizontalrule')"></input>
+		<input type="button" value="Rehacer" onclick="init('redo')"></input>
+		<input type="button" value="Deshacer" onclick="init('undo')"></input>
+		<input type="button" value="Real" onclick="init('s')"></input>
+		<input type="button" value="HTML" onclick="init('h')"></input>
 		</center>
 		</div>
 		<div id="txtbox" contenteditable="true">
@@ -159,7 +159,6 @@
 		<p>Escribe aquí ...</p>
 		<p>Etc ...</p>
 		</div>
-		<form method="post">
 		<textarea id="text" name="text"></textarea>
 	</div>
 	<div id="enviar">
