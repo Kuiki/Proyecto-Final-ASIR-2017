@@ -2,64 +2,78 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="blog_css.css"> 
+	<link rel="stylesheet" type="text/css" href="blog_css.css">
 	<style>
-		#txtbox, #text {
-		width: 86%;
-		height:430px;
-		padding:20px 50px;
+	*{
+		font-family: Arial;
+	}
+
+	#cuerpo #txtbox, #text {
+		width: 96.2%;
+		height:435px;
+		padding:2%;
 		overflow:auto;
 		background:#EFEFEF;
 		border:0px none;
-		margin: 5px;	
+		margin:5px 0px;	
 	}
 	
-	#text {
+	#cuerpo #text {
 		display:none;
 	}
 
-	#editor button, input, select {
+	#cuerpo #editor button, input, select {
 		background:#EFEFEF;
 		border:#000000 none solid;
 		margin: 1px;
 	}
 
-	div{
+	#cuerpo div{
 		float: left;
 	}
 
-	#editor {
-		width: 815px;
+	#cuerpo #editor {
+		width: 80%;
+		height: 100%;
 		margin-top: 10px;
 	}
 
-	#enviar {
+	#cuerpo #enviar {
 		background: #5f5f5f;
-		width: 180px;
+		width: 20%;
 		height: 500px;
 		margin-top: 135px;
 		color:white;
 	}
 
-	#titulo{
-		width: 600px;
+	#cuerpo #titulo{
+		width: 800px;
 		font: bold 30px Arial;
-		margin:0px 5px;
+		margin:0px;
 		position: relative;
 		bottom: 0px;
 	}
-	#menu {
+
+	#cuerpo #menu {
 		background: #5f5f5f;
-		width: 800px;
+		width: 100%;
 		position: relative;
 		top:5px;
-		left: 5px;
+		left: 0px;
 	}
 
 	#nueva entra{
 		position: relative;
 		top: 10px;
 		left: 5px;
+	}
+
+	#cabeza{
+		margin: 0px auto;
+	}
+
+	#categorias{
+		margin:0px auto;
 	}
 
 </style>
@@ -102,7 +116,6 @@
  	?>
  	
 	<?php if (!isset($_POST['guardar'])): ?>
-	<div id="padre" style=" width: 1000px;margin:0 auto;">
 	<div id="cabeza">
 		<div id="logo">
 			<img src="logo.png" onclick="inicio()">
@@ -130,56 +143,61 @@
 				<a href="principal.php?categoria=android"><li>Android</li></a>
 				<a href="principal.php?categoria=pc"><li>PC'S</li></a>
 			</ul>
-
-		</div>
-
-	<div id="editor";">
-		<h1>Nueva Entrada</h1>
-<form method="post">
-		<input id="titulo" type="text" name="titulo" value=""><br>
-		<div id="menu">
-		<center>
-		<input type="button" value="N" onclick="init('bold')"></input>
-		<input type="button" value="I" onclick="init('italic')"></input>
-		<input type="button" value="U" onclick="init('underline')"></input>
-		<input type="button" value="Centrado" onclick="init('justifycenter')"></input>
-		<input type="button" value="Ordenado" onclick="init('justifyfull')"></input>
-		<input type="button" value="Izq" onclick="init('justifyleft')"></input>
-		<input type="button" value="Der" onclick="init('justifyright')"></input>
-		<input type="button" value="Fuente +" onclick="init('increasefontsize')"></input>
-		<input type="button" value="Linea HR" onclick="init('inserthorizontalrule')"></input>
-		<input type="button" value="Rehacer" onclick="init('redo')"></input>
-		<input type="button" value="Deshacer" onclick="init('undo')"></input>
-		<input type="button" value="Real" onclick="init('s')"></input>
-		<input type="button" value="HTML" onclick="init('h')"></input>
-		</center>
-		</div>
-		<div id="txtbox" contenteditable="true">
-		<h2>Título</h2>
-		<p>Escribe aquí ...</p>
-		<p>Etc ...</p>
-		</div>
-		<textarea id="text" name="text"></textarea>
 	</div>
-	<div id="enviar">
-		<br>
-		<center>
-			<input type="submit" name="guardar" value="Guardar" onclick="init('h')">
-			<input type="submit" name="publicar" value="Publicar" onclick="init('h')">			
-			<br></br>
-			<span>------ Categorias ------</span>
-		</center>
-		<ul style="list-style: none;">
-			<li><input type="radio" name="categoria" value="linux">Linux</li>
-			<li><input type="radio" name="categoria" value="windows">Windows</li>
-			<li><input type="radio" name="categoria" value="raspberry">Raspberry</li>
-			<li><input type="radio" name="categoria" value="pc">PC's</li>
-		</ul>
+	<div id="cuerpo" style="margin: 0px auto;width: 1200px;height: 635px;">
+		<form method="post">
+			<div id="editor">
+				<h1>Nueva Entrada</h1>
+				<input id="titulo" type="text" name="titulo" value=""><br>
+				<div id="menu">
+					<center>
+						<input type="button" value="N" onclick="init('bold')"></input>
+						<input type="button" value="I" onclick="init('italic')"></input>
+						<input type="button" value="U" onclick="init('underline')"></input>
+						<input type="button" value="Centrado" onclick="init('justifycenter')"></input>
+						<input type="button" value="Ordenado" onclick="init('justifyfull')"></input>
+						<input type="button" value="Izq" onclick="init('justifyleft')"></input>
+						<input type="button" value="Der" onclick="init('justifyright')"></input>
+						<input type="button" value="Fuente +" onclick="init('increasefontsize')"></input>
+						<input type="button" value="Linea HR" onclick="init('inserthorizontalrule')"></input>
+						<input type="button" value="Rehacer" onclick="init('redo')"></input>
+						<input type="button" value="Deshacer" onclick="init('undo')"></input>
+						<input type="button" value="Real" onclick="init('s')"></input>
+						<input type="button" value="HTML" onclick="init('h')"></input>
+					</center>
+				</div>
+				<div id="txtbox" contenteditable="true">
+					<h2>Título</h2>
+					<p>Escribe aquí ...</p>
+					<p>Etc ...</p>
+				</div>
+				<textarea id="text" name="text"></textarea>
+			</div>
+			<div id="enviar">
+				<br>
+				<center>
+					<input type="submit" name="guardar" value="Guardar" onclick="init('h')">
+					<input type="submit" name="publicar" value="Publicar" onclick="init('h')">			
+					<br></br>
+					<span><b>Categorias</b></span>
+				</center>
+				<ul style="list-style: none;">
+					<li><input type="radio" name="categoria" value="linux">Linux</li><br>
+					<li><input type="radio" name="categoria" value="windows">Windows</li><br>
+					<li><input type="radio" name="categoria" value="raspberry">Raspberry</li><br>
+					<li><input type="radio" name="categoria" value="pc">PC's</li>
+				</ul>
+				<br>
+				<center>
+					<span><b>Imágen de Portada</b></span>
+					<input style="color:black;background: #5f5f5f;" type="file" name="img_entrada" accept="image/*">
+				</center>
+
+			</div>
+		</form>
 	</div>
-</form>
-</div>
+
 	<?php else: ?>
-
 		<?php 
 			$conexion=mysqli_connect("localhost","root","jallmay1995","blog");
 			$id=substr($_GET['user'],0, 4);
@@ -210,7 +228,7 @@
 
 		 ?>
 	<?php endif ?>
-
+	<div id="pie" style="margin: 0px auto; width: 1200px;"></div>
 		
 </body>
 </html>

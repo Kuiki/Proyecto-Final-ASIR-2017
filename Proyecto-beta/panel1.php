@@ -41,7 +41,9 @@
 	session_start();
 	if(empty($_SESSION['Usuario']) || empty($_GET['user'])){
 		echo "<h1>Lo siento, no puedes entrar ...</h1>";
+		var_dump($_SESSION);
 		session_destroy();
+
 		exit();
 	}
  ?>

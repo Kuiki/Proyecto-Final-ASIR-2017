@@ -93,7 +93,7 @@
     				<input type="password" name="pass" required>
     				<br>
     				<a style="font-size:13px; margin-left: 70px;" href="http://localhost/Proyecto_IAW/Proyecto-beta/registro.php">Registrate</a>
-    				<input type="submit" name="sesion" value="Iniciar Sesión">
+    				<input style="width:auto" type="submit" name="sesion" value="Iniciar Sesión">
 				</form>
 			<?php endif ?>
 				</div>
