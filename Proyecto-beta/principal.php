@@ -37,7 +37,7 @@
 				<center>
 				<?php 
 					echo "<img id='avatar' src='user.png'><br>";
-							echo "<a href='panel1.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
+							echo "<a href='entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
 							echo "<br>";
 							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 				 ?>

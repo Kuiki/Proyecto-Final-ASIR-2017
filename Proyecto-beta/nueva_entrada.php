@@ -126,7 +126,7 @@
 					<center>
 					<img id="avatar" src='user.png'><br>
 					<?php 
-						echo "<a id='usuario' href='panel1.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
+						echo "<a id='usuario' href='entradas.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
 					 ?>
 					 <br>
 					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
@@ -148,7 +148,7 @@
 		<form method="post">
 			<div id="editor">
 				<h1>Nueva Entrada</h1>
-				<input id="titulo" type="text" name="titulo" value=""><br>
+				<input id="titulo" type="text" name="titulo" value="" required><br>
 				<div id="menu">
 					<center>
 						<input type="button" value="N" onclick="init('bold')"></input>
@@ -189,8 +189,37 @@
 				</ul>
 				<br>
 				<center>
-					<span><b>Imágen de Portada</b></span>
-					<input style="color:black;background: #5f5f5f;" type="file" name="img_entrada" accept="image/*">
+					<span><b>Imágen de Portada</b></span><br>
+					
+
+<?php
+/*
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="pic" accept="image/*">
+  <input type="submit">
+</form>
+// En versiones de PHP anteriores a la 4.1.0, debería utilizarse $HTTP_POST_FILES en lugar
+// de $_FILES.
+
+$dir_subida='/var/www/html/Proyecto_IAW/Proyecto-beta/Prueba/';
+$fichero_subido=$dir_subida.basename($_FILES['pic']['name']);
+echo '<pre>';
+var_dump($_FILES);
+if (move_uploaded_file($_FILES['pic']['tmp_name'], $fichero_subido)){
+    echo "El fichero es válido y se subió con éxito.\n";
+} else {
+    echo "¡Posible ataque de subida de ficheros!\n";
+}
+
+echo 'Más información de depuración:';
+var_dump($_FILES);
+$imagen=$_FILES['pic']['name'];
+print "</pre>";
+echo "<img style='width:100px; height:100px;' src='Prueba/".$imagen."'>";
+
+echo $_FILES['pic']['name'];
+*/
+?>
 				</center>
 
 			</div>
@@ -221,7 +250,14 @@
 			$insertarcategoria=mysqli_query($conexion,$consulta2);
 
 			if($insertarcategoria==true && insertarentrada==true){
-				echo "Entrada creada";
+					echo "<script type='text/javascript'>
+					alert('¡¡¡Entrada Creada!!!);
+					var pagina='entradas.php?user=".$_SESSION['Usuario']."';
+					function redireccionar(){
+					location.href=pagina;
+					} 
+					setTimeout ('redireccionar()', 500);
+			</script>";
 			}else{
 				echo "No se pudo crear la entrada";
 			}

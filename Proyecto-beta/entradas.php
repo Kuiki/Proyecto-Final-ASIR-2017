@@ -58,7 +58,7 @@
 					<center>
 					<img id="avatar" src='user.png'><br>
 					<?php 
-						echo "<a id='usuario' href='panel1.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
+						echo "<a id='usuario' href='entradas.php?user=".$_GET['user']."'>".$_GET['user']."</a>";
 					 ?>
 					 <br>
 					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
@@ -79,7 +79,7 @@
 		</div>
 		</div>
 		<div id="entrada">
-		<h1>Entradas</h1><span><?php echo "<a href='editor.php?user=".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
+		<h1>Entradas</h1><span><?php echo "<a href='nueva_entrada.php?user=".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
 		
 
 		<?php
@@ -103,7 +103,7 @@
 			</tr>
 
 			<?php 
-				$consulta2="SELECT e.Titulo, c.NombreCategoria, e.UltimaModificacion, count(Comentario) Comentarios FROM ENTRADAS e JOIN USUARIOS u ON u.CodUsuario=e.CodUsuario LEFT JOIN PERTENECE p ON e.IdEntrada=p.IdEntrada LEFT JOIN CATEGORIAS c ON p.CodCategoria=c.CodCategoria LEFT JOIN COMENTARIOS co ON e.IdEntrada=co.IdEntrada where u.Usuario='".$_GET['user']."' group by e.Titulo,c.NombreCategoria,e.UltimaModificacion";
+				$consulta2="SELECT e.IdEntrada, e.Titulo, c.NombreCategoria, e.UltimaModificacion, count(Comentario) Comentarios FROM ENTRADAS e JOIN USUARIOS u ON u.CodUsuario=e.CodUsuario LEFT JOIN PERTENECE p ON e.IdEntrada=p.IdEntrada LEFT JOIN CATEGORIAS c ON p.CodCategoria=c.CodCategoria LEFT JOIN COMENTARIOS co ON e.IdEntrada=co.IdEntrada where u.Usuario='".$_GET['user']."' group by e.IdEntrada, e.Titulo,c.NombreCategoria,e.UltimaModificacion";
 
 				$resultado2=mysqli_query($conexion,$consulta2);
 
@@ -112,8 +112,8 @@
 					echo "<a href=''>".$fila['Titulo']."</a></td><td>";
 					echo $fila['NombreCategoria']."</td><td>";
 					echo $fila['UltimaModificacion']."</td><td>";
-					echo "<a href=''>editar</a></td><td>";
-					echo "<a href=''>borrar</a></td><td>";
+					echo "<a href='editar_entrada.php?id=".$fila['IdEntrada']."'>editar</a></td><td>";
+					echo "<a href='borrar_entrada.php?id=".$fila['IdEntrada']."'>borrar</a></td><td>";
 					echo "<a href=''>comentarios(".$fila['Comentarios'].")</a></td></tr>";
 
 				}
