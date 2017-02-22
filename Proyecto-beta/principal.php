@@ -60,7 +60,7 @@
 							}
 
 							echo "<img id='avatar' src='user.png'><br>";
-							echo "<a href='panel1.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
+							echo "<a href='entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
 							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
