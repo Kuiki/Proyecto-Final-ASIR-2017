@@ -249,7 +249,7 @@ echo $_FILES['pic']['name'];
 			$insertarentrada=mysqli_query($conexion,$consulta1);
 			$insertarcategoria=mysqli_query($conexion,$consulta2);
 
-			if($insertarcategoria==true && insertarentrada==true){
+			if($insertarcategoria==true && $insertarentrada==true){
 					echo "<script type='text/javascript'>
 					alert('¡¡¡Entrada Creada!!!);
 					var pagina='entradas.php?user=".$_SESSION['Usuario']."';
