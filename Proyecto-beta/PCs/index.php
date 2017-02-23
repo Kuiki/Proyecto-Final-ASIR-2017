@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Blog Personal</title>
-	<link rel="stylesheet" type="text/css" href="blog_css.css"> 
+	<link rel="stylesheet" type="text/css" href="../blog_css.css"> 
 	<style type="text/css">
 		div{
 			margin: 0px auto;
@@ -21,7 +21,7 @@
 	</style>
 	<script type="text/javascript">
 		function inicio(){
-			location.href='principal.php';
+			location.href='../principal.php';
 		}
 
 	</script>
@@ -38,7 +38,7 @@
 		?>
  		<div id="cabeza">
 			<div id="logo">
-				<img src="logo.png" onclick="inicio()">
+				<img src="../logo.png" onclick="inicio()">
 				<h1>Tuto Informático</h1>
 			</div>
 			<div id="login">
@@ -46,10 +46,10 @@
 			<?php if (!empty($_SESSION)): ?>
 				<center>
 				<?php 
-					echo "<img id='avatar' src='user.png'><br>";
-							echo "<a href='entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
+					echo "<img id='avatar' src='../user.png'><br>";
+							echo "<a href='../entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
 							echo "<br>";
-							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<a href='../principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 				 ?>
 			<?php elseif(!empty($_POST['user'])): ?>
 				<center>
@@ -68,7 +68,7 @@
 								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['Usuario']."!!!');</script>";
 							}
 
-							echo "<img id='avatar' src='user.png'><br>";
+							echo "<img id='avatar' src='../user.png'><br>";
 							echo "<a href='entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
 							echo "<a href='principal.php' style='font-size:10px'>[Cerrar Sesión]</a>";
@@ -110,17 +110,17 @@
 		</div>
 		<div id="categorias">
 			<ul>
-				<a href="Windows/"><li>Windows</li></a>
-				<a href="Linux"><li>GNU/Linux</li></a>
-				<a href="Raspberry"><li>Raspberry</li></a>
-				<a href="Android"><li>Android</li></a>
-				<a href="PCs"><li>PC'S</li></a>
+				<a href="../Windows/"><li>Windows</li></a>
+				<a href="../Linux"><li>GNU/Linux</li></a>
+				<a href="../Raspberry"><li>Raspberry</li></a>
+				<a href="../Android"><li>Android</li></a>
+				<a href="../PCs"><li>PC'S</li></a>
 			</ul>
 
 		</div>
 		<div id="entrada">
 			<?php 
-				$consulta_entradas="SELECT * FROM ENTRADAS";
+				$consulta_entradas="SELECT * FROM ENTRADAS E JOIN PERTENECE P ON E.IdEntrada=P.IdEntrada JOIN CATEGORIAS C ON C.CodCategoria=P.CodCategoria WHERE NombreCategoria='PCs'";
 				$resultado_entrada=mysqli_query($conexion,$consulta_entradas);
 				if($resultado_entrada==false){
 					echo "<script type=text/javascript>

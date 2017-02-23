@@ -242,8 +242,7 @@ echo $_FILES['pic']['name'];
 			$id=substr($_GET['user'],0, 4);
 			$entrada=rand(100,999);
 			$IdEntrada=mb_strtoupper($id.$entrada);
-
-			$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','N','MACA004')";
+			$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','N','".$_SESSION['CodUsuario']."')";
 
 			if(!empty($_POST['categoria'])){
 				$codcategoria="SELECT CodCategoria FROM CATEGORIAS WHERE NombreCategoria LIKE '%".$_POST['categoria']."'";
