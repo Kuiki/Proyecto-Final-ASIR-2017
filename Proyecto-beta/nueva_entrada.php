@@ -251,8 +251,8 @@ echo $_FILES['pic']['name'];
 
 			if($insertarcategoria==true && $insertarentrada==true){
 					echo "<script type='text/javascript'>
-					alert('¡¡¡Entrada Creada!!!);
-					var pagina='entradas.php?user=".$_SESSION['Usuario']."';
+					alert('¡Entrada creada!');
+					var pagina='entradas.php?user=".$_GET['user']."';
 					function redireccionar(){
 					location.href=pagina;
 					} 
