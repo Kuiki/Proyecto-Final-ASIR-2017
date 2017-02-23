@@ -167,9 +167,18 @@
 					</center>
 				</div>
 				<div id="txtbox" contenteditable="true">
-					<h2>Título</h2>
-					<p>Escribe aquí ...</p>
-					<p>Etc ...</p>
+					<p>Escribe aquí ...
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					</p>
 				</div>
 				<textarea id="text" name="text"></textarea>
 			</div>
@@ -182,10 +191,11 @@
 					<span><b>Categorias</b></span>
 				</center>
 				<ul style="list-style: none;">
-					<li><input type="radio" name="categoria" value="linux">Linux</li><br>
-					<li><input type="radio" name="categoria" value="windows">Windows</li><br>
-					<li><input type="radio" name="categoria" value="raspberry">Raspberry</li><br>
-					<li><input type="radio" name="categoria" value="pc">PC's</li>
+					<li><input type="radio" name="categoria" value="GNU/Linux">Linux</li><br>
+					<li><input type="radio" name="categoria" value="Windows">Windows</li><br>
+					<li><input type="radio" name="categoria" value="Android">Android</li><br>
+					<li><input type="radio" name="categoria" value="Raspberry">Raspberry</li><br>
+					<li><input type="radio" name="categoria" value="PCs">PC's</li>
 				</ul>
 				<br>
 				<center>

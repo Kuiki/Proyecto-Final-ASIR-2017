@@ -70,11 +70,11 @@
 		</div>
 		<div id="categorias">
 			<ul>
-				<a href="principal.php?categoria=windows"><li>Windows</li></a>
-				<a href="principal.php?categoria=linux"><li>GNU/Linux</li></a>
-				<a href="principal.php?categoria=raspberry"><li>Raspberry</li></a>
-				<a href="principal.php?categoria=android"><li>Android</li></a>
-				<a href="principal.php?categoria=pc"><li>PC'S</li></a>
+				<a href="principal.php?categoria=Windows"><li>Windows</li></a>
+				<a href="principal.php?categoria=Linux"><li>GNU/Linux</li></a>
+				<a href="principal.php?categoria=Raspberry"><li>Raspberry</li></a>
+				<a href="principal.php?categoria=Android"><li>Android</li></a>
+				<a href="principal.php?categoria=PCs"><li>PC'S</li></a>
 			</ul>
 		</div>
 		</div>

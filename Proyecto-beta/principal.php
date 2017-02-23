@@ -8,6 +8,15 @@
 		div{
 			margin: 0px auto;
 		}
+
+		.sintaxis{
+			width:90%;
+			height:50%; 
+			font-family: Arial;
+			text-align:justify; 
+			margin:0px auto;
+			margin-top: 150px;
+		}
 	</style>
 	<script type="text/javascript">
 		function inicio(){
@@ -44,10 +53,8 @@
 			<?php elseif(!empty($_POST['user'])): ?>
 				<center>
 				<?php 
-
 					$consulta="SELECT * FROM USUARIOS WHERE Usuario='".$_POST['user']."';";
 					$resultado=mysqli_query($conexion,$consulta);
-					mysqli_close($conexion);
 					$fila=mysqli_fetch_array($resultado);
 					if(!is_null($fila)){
 						if($fila['Usuario']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
@@ -110,9 +117,31 @@
 
 		</div>
 		<div id="entrada">
-				<div></div>
-				<div></div>
-				<div></div>
+			<?php 
+				$consulta_entradas="SELECT * FROM ENTRADAS";
+				$resultad_entrada=mysqli_query($conexion,$consulta_entradas);
+				if($resultad_entrada==false){
+					echo "<script type=text/javascript>
+							alert('Error al obtener entradas');
+						</script>";
+				}else{
+					while($fila_entrada=mysqli_fetch_array($resultad_entrada)){
+
+						echo "<div>";
+						$stringDisplay = substr(strip_tags($fila_entrada['Contenido']), 0, 250);
+
+						if (strlen(strip_tags($fila_entrada['Contenido'])) > 250){
+        						$stringDisplay .= ' ...';
+    						}
+						echo "<p class='sintaxis'>".$stringDisplay."</p>";
+						echo "</div>";
+					}
+				}
+				mysqli_close($conexion);
+
+
+
+			 ?>
 		</div>
 		<div id="pie"></div>
 </body>
