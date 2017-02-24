@@ -115,7 +115,7 @@
 	}
  	?>
  	
-	<?php if (!isset($_POST['guardar'])): ?>
+	<?php if (!isset($_POST['guardar']) || !isset($_POST['publicar'])): ?>
 	<div id="cabeza">
 		<div id="logo">
 			<img src="logo.png" onclick="inicio()">
@@ -242,7 +242,13 @@ echo $_FILES['pic']['name'];
 			$id=substr($_GET['user'],0, 4);
 			$entrada=rand(100,999);
 			$IdEntrada=mb_strtoupper($id.$entrada);
-			$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','N','".$_SESSION['CodUsuario']."')";
+
+			if(!isset($_POST['Guardar'])){
+				$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','N','".$_SESSION['CodUsuario']."')";
+			
+			}else{
+				$consulta1="INSERT INTO ENTRADAS (IdEntrada,Titulo,Contenido,Publicado,CodUsuario) VALUES ('".$IdEntrada."','".$_POST['titulo']."','".$_POST['text']."','Y','".$_SESSION['CodUsuario']."')";
+			}
 
 			if(!empty($_POST['categoria'])){
 				$codcategoria="SELECT CodCategoria FROM CATEGORIAS WHERE NombreCategoria LIKE '%".$_POST['categoria']."'";
@@ -260,13 +266,14 @@ echo $_FILES['pic']['name'];
 
 			if($insertarcategoria==true && $insertarentrada==true){
 					echo "<script type='text/javascript'>
-					alert('¡Entrada creada!');
+					alert('¡Entrada creada!' );
 					var pagina='entradas.php?user=".$_GET['user']."';
 					function redireccionar(){
 					location.href=pagina;
 					} 
 					setTimeout ('redireccionar()', 500);
 			</script>";
+
 			}else{
 				echo "No se pudo crear la entrada";
 			}
