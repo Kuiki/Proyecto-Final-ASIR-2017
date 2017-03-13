@@ -66,7 +66,7 @@
 						echo "<a id='usuario' href='../Entrada/entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
 					?>
 					 <br>
-					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
+					 <a style="font-size: 10px;" href="../..cerrar_session.php">[Cerrar Sesión]</a>
 
 					</center>
 				 </div>
@@ -100,8 +100,7 @@
 		 ?>
 
 	<h1>Mis Datos</h1>
-	<form method='post' action="editar_perfil.php" enctype='multipart/form-data'>
-				<fieldset>
+	<form id="perfil" method='post' action="editar_perfil.php" enctype='multipart/form-data'>
 					<span>Usuario:</span><input type='text' name='usuario' value="<?php echo $ver_usuario['Usuario']; ?>" readonly><br>
 					<span>Nombre:</span><input type='text' name='nombre' value="<?php echo $ver_usuario['Nombre']; ?>" readonly><br>
 					<span>Apellidos:</span><input type='text' name='apellidos' value="<?php echo $ver_usuario['Apellidos']; ?>" readonly><br>
@@ -109,9 +108,7 @@
 					<span>Correo Eletronico:</span><input type='email' name='correo' value="<?php echo $ver_usuario['CorreoElectronico']; ?>" readonly><br>
 					<span>Constraseña:</span><input type='password' name='contra' value="<?php echo $ver_usuario[9]; ?>" readonly><br>
 					<span style="float: left;">Avatar:</span>
-					<img style="width:100px; height:100px; float: left; margin: 10px;" src="../Img_Usuarios/<?php echo $ver_usuario['ImgUsuario']; ?>"><br></br><br></br>
-				</fieldset>
-
+					<img style="width:100px; height:100px; float: left; margin: 10px;" src="../Img_Usuarios/<?php echo $_SESSION['ImgUsuario']; ?>"><br></br><br></br><br></br><br></br>
 					<input type='submit' name='enviar' value='Editar Perfíl'>
 		</form>
 

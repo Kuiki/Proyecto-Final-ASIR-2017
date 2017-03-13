@@ -21,6 +21,13 @@
 			document.execCommand(x,false,null);
 			document.getElementById('txtbox').focus();
 		}
+               
+           if (x=="o") {
+					
+               document.getElementById('text').value=document.getElementById('txtbox').innerHTML;
+
+		}
+
 	}
 
 </script>
@@ -112,8 +119,8 @@
 			<div id="enviar">
 				<br>
 				<center>
-					<input type="submit" name="guardar" value="Guardar" onclick="init('h')">
-					<input type="submit" name="guardar" value="Publicar" onclick="init('h')">			
+					<input type="submit" name="guardar" value="Guardar" onclick="init('o')">
+					<input type="submit" name="guardar" value="Publicar" onclick="init('o')">			
 					<br></br>
 					<span><b>Categorias</b></span>
 				</center>

@@ -3,20 +3,21 @@
 <head>
 	<title></title>
 	<style type="text/css">
+body{background-color:rgb(46, 74, 117);}
 		form{
 			width: 600px;
 			margin: 0px auto;
 			font-family: Arial;
-			border-radius: 40px;
-			color:white;
+			border-radius: 5px;
+			color:rgb(46, 74, 117);
 
 		}
 
 		fieldset{
 			padding: 100px;
 			margin: 50px 0px;
-			border-radius: 40px;
-			background: #5f5f5f;
+			border-radius: 5px;
+			background: #e7a61a;
 
 
 
@@ -56,10 +57,10 @@
 		<fieldset>
 			<span>Usuario:</span><br><input type="text" name="Usuario"><br>
 			<span>Contraseña:</span><br><input type="password" name="Contra">
-  			<br></br>
+  			<br></br><center>
 			<div id="botones">
-			<input type="submit" name="Nueva" value="Iniciar Sesión"><input type="submit" name="nueva" value="Cancelar">
-			</div>
+			<input type="submit" name="nueva" value="Iniciar Sesión"><input type="submit" name="nueva" value="Cancelar">
+			</div></center>
 		</fieldset>
 
 	</form>

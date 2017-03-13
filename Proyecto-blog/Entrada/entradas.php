@@ -4,21 +4,23 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../blog_css.css"> 
 	<style type="text/css">
-		body {
-			background: #EFEAEA;
-		}
 		div{
 			margin: 0px auto;
 		}
 
 		table{
-			border: 1px solid black;
+			border: 1px solid rgb(46, 74, 117);
 			border-collapse: collapse;
-			width: 100%
+			width: 90%;
+                        margin:0px auto;
 		}
+                table #1{
+style="background:rgb(46, 74, 117); 
+color:white"
+}
 
 		tr,th{
-			border: 1px solid black;
+			border: 1px solid rgb(46, 74, 117);
 		}
 
 		th{
@@ -92,7 +94,7 @@
 				echo "<input type='submit' name='elegir' value='ir'>";
 			echo "</form>";
 		 ?>
-		<h1>Entradas</h1><span><?php echo "<a href='nueva_entrada.php?user=".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
+		<h1>Entradas</h1><span><?php echo "<a style='color:rgb(46, 74, 117);' href='nueva_entrada.php?user=".$_GET['user']."'>[Añadir Nueva Entrada]</a>"; ?></span>
 
 		<?php
 			$consulta1="SELECT count(*) from ENTRADAS e JOIN USUARIOS u on e.CodUsuario=u.CodUsuario where Usuario='".$_GET['user']."'";
@@ -102,7 +104,7 @@
 
 		<?php if ($numero[0]!=0): ?>
 			<table>
-			<tr id="1" style="background: #5f5f5f; color:white">
+			<tr id="1">
 				<th>Imagen</th>
 				<th>Titulo</th>
 				<th>Categoria</th>

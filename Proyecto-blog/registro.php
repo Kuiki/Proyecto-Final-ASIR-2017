@@ -3,15 +3,20 @@
 <head>
 	<title></title>
 	<style type="text/css">
+                body{
+                 background:rgb(46, 74, 117);
+}
 		form{
 			width: 600px;
 			margin: 0px auto;
-
+                        font-family:Arial;
+                        color:white;
 		}
-
 		fieldset{
 			padding: 80px;
 			margin: 50px 0px;
+                        background:#e7a61a;
+                        border-radius:5px;
 
 		}
 		span{
@@ -22,6 +27,7 @@
 		input{
 			display: inline-block;
 			margin: 5px;
+                        border-radius:5px;
 		}
 		#botones{
 			width: 200px;
@@ -29,34 +35,31 @@
 			margin: 0px auto;
 		}
 	</style>
-	<script type="text/javascript">
-		function inicio(){
-			location.href='../index.php';
-		}
 
-	</script>
 </head>
 <body>
 <?php if (!isset($_FILES['imgusuario'])): ?>
 
 	<form method="post"  enctype="multipart/form-data">
 		<fieldset>
-			<legend><h2>Nueva Cuenta</h2></legend>
+			<center><h1>Nueva Cuenta</h1></center>
 			<span>Usuario:</span><input type="text" name="Usuario" required>
 			<span>Nombre:</span><input type="text" name="Nombre" required>
 			<span>Apellidos:</span><input type="text" name="Apellidos">
 			<span>Correo Electrónico:</span><input type="email" name="Correo" required>
 			<span>Contraseña:</span><input type="password" name="Pass" required>
-			<span>Sexo:</span><input type="radio" name="Sexo" value="H">Hombre<input type="radio" name="Sexo" value="M">Mujer<br>
+			<span>Sexo:</span><input type="radio" name="Sexo" value="H" checked="ckecked">Hombre<input type="radio" name="Sexo" value="M">Mujer<br>
 			<span>Fecha Nacimiento</span><input type="date" name="Nacimiento" value="">
 			<input type="file" accept="image/*" name="imgusuario">
   			<br></br>
 			<div id="botones">
-			<input type="submit" name="Nueva" value="Crear Cuenta"><input type="button" name="Cancelar" value="Cancelar">
+                        <center>
+			<input type="submit" name="Nueva" value="Crear Cuenta">
+                        </center>
 			</div>
 		</fieldset>
-
 	</form>
+<a href="index.php"><input type="button" name="inicio" value="Pricipal"></a><br></br>
 
 <?php else: ?>
 	<?php 
@@ -90,7 +93,7 @@
 				function redireccionar(){
 				location.href=pagina;
 				} 
-				setTimeout ('redireccionar()', 500);
+				setTimeout ('redireccionar()', 300);
 			</script>";
 			}else{
 			echo "<script type='text/javascript'>
@@ -99,7 +102,7 @@
 				function redireccionar(){
 				location.href=pagina;
 				} 
-				setTimeout ('redireccionar()', 500);
+				setTimeout ('redireccionar()', 300);
 			</script>";		}
 		
 		?>

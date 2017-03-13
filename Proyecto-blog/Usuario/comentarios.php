@@ -7,22 +7,23 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../blog_css.css"> 
 	<style type="text/css">
-		body {
-			background: #EFEAEA;
-		}
 		div{
 			margin: 0px auto;
 		}
 
 		table{
-			border: 1px solid black;
+			border: 1px solid rgb(46, 74, 117);
 			border-collapse: collapse;
-			width: 100%;
-			margin: 0px auto;
+			width: 90%;
+                        margin:0px auto;
 		}
+                table #1{
+style="background:rgb(46, 74, 117); 
+color:white"
+}
 
 		tr,th{
-			border: 1px solid black;
+			border: 1px solid rgb(46, 74, 117);
 		}
 
 		th{
@@ -31,8 +32,6 @@
 
 		td{
 			text-align: center;
-			border: 1px solid black;
-
 		}
 	</style>
 	<script type="text/javascript">
@@ -56,7 +55,7 @@
 						echo "<a id='usuario' href='../Entrada/entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
 					?>
 					 <br>
-					 <a style="font-size: 10px;" href="">[Cerrar Sesión]</a>
+					 <a style="font-size: 10px;" href="../cerrar_session.php">[Cerrar Sesión]</a>
 
 				</center>
 			</div>
@@ -86,7 +85,8 @@
 				echo "<input type='submit' name='elegir' value='ir'>";
 			echo "</form>";
 		 ?>
- 	
+ 	<h1>Comentarios</h1>
+
 		 <?php 
 		 	if(isset($_GET['entrada'])){
 		 		$consulta_usuarios="SELECT e.ImagenEntrada,e.IdEntrada,e.Titulo,c.Comentario,c.IdComentario FROM ENTRADAS e JOIN COMENTARIOS c ON e.IdEntrada=c.IdEntrada WHERE e.IdEntrada='".$_GET['entrada']."'";
@@ -102,20 +102,22 @@
 		 	}else{
 		 		if(mysqli_num_rows($ver_consulta)==0){
 		 			echo "<h2>No tienes comentarios";
-		 		};
-
-		 	}
-
-		 ?>
-
-		 <table>
-		 	<tr style="background: #5f5f5f; color:white">
+		 		}else{
+echo "<table>
+		 	<tr>
 
 		 		<th>Imagen</th>
 		 		<th>Titulo</th>
 		 		<th>Comentario</th>
 		 		<th>Eliminar</th>
-		 	</tr>
+		 	</tr>";
+}
+
+		 	}
+
+		 ?>
+
+		 
 		 	<?php 
 		 		while ($fila=mysqli_fetch_array($ver_consulta)) {
 		 			echo "<tr><td>";

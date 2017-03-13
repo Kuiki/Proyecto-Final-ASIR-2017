@@ -45,6 +45,7 @@
 						if($fila['Usuario']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
 							$_SESSION['Usuario']=$_POST['user'];
 							$_SESSION['CodUsuario']=$fila['CodUsuario'];
+                                                        $_SESSION['ImgUsuario']=$fila['ImgUsuario'];
 
 							if ($fila['TipoUsuario']=='Administrador') {
 								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['TipoUsuario']."!!!');</script>";
@@ -57,8 +58,8 @@
 							echo "<br>";
 							echo "<a href='cerrar_session.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
-							echo "<script type='text/javascript'>alert('¡Usuario o Contraseña incorrecta!');
-								var pagina='../index.php';
+							echo "<script type='text/javascript'>alert('¡Contraseña incorrecta!');
+								var pagina='index.php';
 								function redireccionar(){
 								location.href=pagina;
 							  } 
@@ -67,7 +68,7 @@
 						}
 					}else {
 						echo "<script type='text/javascript'>alert('¡El usuario no existe!');
-								var pagina='../index.php';
+								var pagina='index.php';
 								function redireccionar(){
 								location.href=pagina;
 							  } 
@@ -104,7 +105,7 @@
 		</div>
 		<div id="entrada">
 			<?php 
-				$consulta_entradas="SELECT * FROM ENTRADAS E JOIN PERTENECE P ON E.IdEntrada=P.IdEntrada JOIN CATEGORIAS C ON C.CodCategoria=P.CodCategoria WHERE NombreCategoria='PCs'";
+				$consulta_entradas="SELECT * FROM ENTRADAS E JOIN PERTENECE P ON E.IdEntrada=P.IdEntrada JOIN CATEGORIAS C ON C.CodCategoria=P.CodCategoria WHERE NombreCategoria='PCs' AND Publicado='S'";
 				$resultado_entrada=mysqli_query($conexion,$consulta_entradas);
 				if($resultado_entrada==false){
 					echo "<script type=text/javascript>

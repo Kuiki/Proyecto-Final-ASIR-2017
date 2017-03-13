@@ -22,26 +22,36 @@
 <head>
 	<title></title>
 	<style type="text/css">
+		body{
+                 background:rgb(46, 74, 117);
+}
 		form{
 			width: 600px;
 			margin: 0px auto;
-
+                        font-family:Arial;
+                        color:white;
 		}
-
 		fieldset{
 			padding: 80px;
 			margin: 50px 0px;
+                        background:#e7a61a;
+                        border-radius:5px;
 
 		}
 		span{
 			display: inline-block;
-			width: 150px;
+			width: 200px;
 		}
 
 		input{
 			display: inline-block;
 			margin: 5px;
-			width: 250px;
+                        border-radius:5px;
+		}
+		#botones{
+			width: 200px;
+			padding: 5px;
+			margin: 0px auto;
 		}
 	</style>
 </head>
@@ -50,7 +60,7 @@
 <?php if (!isset($_FILES['avatar'])): ?>
 		<form method='post' enctype='multipart/form-data'>
 				<fieldset>
-					<legend>Editar Usuario</legend>
+					<center><h1>Editar Usuario</h1></center>
 					<span>Usuario:</span><input type='text' name='usuario' value="<?php echo $ver_usuario['Usuario']; ?>">
 					<span>Nombre:</span><input type='text' name='nombre' value="<?php echo $ver_usuario['Nombre']; ?>">
 					<span>Apellidos:</span><input type='text' name='apellidos' value="<?php echo $ver_usuario['Apellidos']; ?>">

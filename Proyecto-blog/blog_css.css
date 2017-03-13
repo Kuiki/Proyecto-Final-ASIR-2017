@@ -1,4 +1,7 @@
 /* TODOS */
+body{
+background-color:#e7a61a;
+}
 	*{
 		font-family: Arial;
 	}
@@ -6,47 +9,67 @@
 	a{
 		text-decoration: none;
 		font-family: Arial;
+                color:#e7a61a ;
+
 	}
 
 	a:visited{
-		color:blue;
+		color:#e7a61a
 	}
 
+
+form>*{
+border-radius:6px;
+}
 /* CUERPO */
 
 		#entrada{
 			width: 1200px;
-			min-height: 900px;
-			margin-top: 5px;
-			height: auto;
-			overflow: auto;
-			background: #DBDBDB;
+			min-height: 500px;
+			margin: 5px auto;
+			overflow-y: hidden;
+                        background:#e7a61a;
+
 		}
-		
+#entrada #perfil{
+color:rgb(46, 74, 117);
+font-family:Arial;
+}
+#entrada table th{
+background:rgb(46, 74, 117);
+color: white;
+}
+#entrada table tr a{color:rgb(46, 74, 117);}
+	
 		#entrada>a>div{
-			border:1px solid #5f5f5f;
+			border:1px solid rgb(46, 74, 117);
+                        border-radius:4px;
 			background: white;
 			float: left;
 			width: 30.5%;
 			height: 300px;
-			margin: 13px;
+			margin: 15px;
 			position: relative;
 			display: inline;
-			box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.45);
-			transition: transform 0.3s;
-
+			box-shadow: 5px 5px 5px -2px rgb(46, 74, 117);
+			transition: transform 0.3s,background 0.3s;
+                        color:rgb(46, 74, 117);
 		}
+
 		#entrada>a>div:hover{
-			transform:scale(1.05);
-
-
+			transform:scale(1.02);
+			background: rgb(46, 74, 117);
+                        color:white;
 		}
 		
 		#pie{
 			width: 1200px;
-			height: 150px;	
-			margin: 0px auto;
-			background: #5f5f5f;
+			height: 150px;
+                        margin:15px auto;
+                        border:1px solid #e7a61a ;
+			background: rgb(46, 74, 117);
+			box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.27);
+
 		}
 
 		/* CATEGORIAS */
@@ -56,18 +79,23 @@
 			height: 50px;
 			right: 0px;
 			left: 0px;
+                        margin:15px auto;
 			position: relative;
 		}
 
 		#categorias>ul{
 			margin: 0px;
+                        height:55px;
 			padding: 0px;
+                        box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.27);
+
 		}
 
 		#categorias>ul>a>li{
 			float: left;
-			width: 20%;
-			background: #5f5f5f;
+			width: 19.83%;
+			background: rgb(46, 74, 117);
+                        border:1px solid #e7a61a ;
 			margin: 0px;
 			padding: 15px 0px;
 			text-align: center;
@@ -76,21 +104,25 @@
 			font-size: 20px;
 			font-family: Arial;
 			transition: background 0.3s;
+
 		}
 
 		#categorias>ul>a>li:hover{
-			background: black;
+			background: #e7a61a;
+                        border:1px solid rgb(46, 74, 117);
+                        color: rgb(46, 74, 117);
 		}
 
-		#categorias>ul>a>li:active{
-			background: green;
-		}
 
 /* CABEZA */
 		#cabeza{
 			width: 1200px;
 			height: 120px;
-			background: #5f5f5f;
+                        margin:15px auto;
+			background: rgb(46, 74, 117);
+                        border:1px solid #e7a61a ;
+			box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.27);
+
 		}	
 
 		#cabeza>div{
@@ -199,11 +231,13 @@
 	}
 
 	#cuerpo #enviar {
-		background: #5f5f5f;
+		background: rgb(46, 74, 117);
 		width: 20%;
 		height: 500px;
-		margin-top: 135px;
+		margin-top: 133px;
 		color:white;
+border-radius:0px 5px 5px 0px;
+
 	}
 
 	#cuerpo #titulo{
@@ -215,17 +249,10 @@
 	}
 
 	#cuerpo #menu {
-		background: #5f5f5f;
+		background: rgb(46, 74, 117);
 		width: 100%;
 		position: relative;
 		top:5px;
 		left: 0px;
-	}
-
-	#cabeza{
-		margin: 0px auto;
-	}
-
-	#categorias{
-		margin:0px auto;
+border-radius:5px 0px 0px 0px;
 	}

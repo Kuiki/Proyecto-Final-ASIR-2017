@@ -21,7 +21,14 @@
 			document.execCommand(x,false,null);
 			document.getElementById('txtbox').focus();
 		}
+if (x=="o") {
+					
+               document.getElementById('text').value=document.getElementById('txtbox').innerHTML;
+
+		}
+
 	}
+
 
 </script>
 <script type="text/javascript">
@@ -82,8 +89,8 @@
 						<input type="button" value="U" onclick="init('underline')"></input>
 						<input type="button" value="Centrado" onclick="init('justifycenter')"></input>
 						<input type="button" value="Ordenado" onclick="init('justifyfull')"></input>
-						<input type="button" value="Izq" onclick="init('justifyleft')"></input>
-						<input type="button" value="Der" onclick="init('justifyright')"></input>
+						<input type="button" value="Izq" onclick="document.execCommand('justifyLeft',false,'')"></input>
+						<input type="button" value="Der" onclick="document.execCommand('justifyright',false,'')"></input>
 						<input type="button" value="Fuente +" onclick="init('increasefontsize')"></input>
 						<input type="button" value="Linea HR" onclick="init('inserthorizontalrule')"></input>
 						<input type="button" value="Rehacer" onclick="init('redo')"></input>
@@ -93,22 +100,22 @@
 					</center>
 				</div>
 				<div id="txtbox" contenteditable="true">
-					<p>Escribe aquí ...
+					<p>Escribe aqui ...</p>
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
 					<br></br>
 					<br></br>
-					<br></br>
-					<br></br>
-					<br></br>
-					<br></br>
-					</p>
+					
 				</div>
 				<textarea id="text" name="text"></textarea>
 			</div>
 			<div id="enviar">
 				<br>
 				<center>
-					<input type="submit" name="guardar" value="Guardar" onclick="init('h')">
-					<input type="submit" name="guardar" value="Publicar" onclick="init('h')">			
+					<input type="submit" name="guardar" value="Guardar" onclick="init('o')">
+					<input type="submit" name="guardar" value="Publicar" onclick="init('o')">			
 					<br></br>
 					<span><b>Categorias</b></span>
 				</center>

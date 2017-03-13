@@ -16,7 +16,6 @@
 		}
 
 	</script>
-</script>
 
 </head>
 <body>
@@ -36,7 +35,7 @@
 					echo "<img id='avatar' src='Img_Usuarios/".$_SESSION['ImgUsuario']."'><br>";
 							echo "<a href='Entrada/entradas.php?user=".$_SESSION['Usuario']."'>".$_SESSION['Usuario']."</a>";
 							echo "<br>";
-							echo "<a href='cerrar_session.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<a href='cerrar_session.php?' style='font-size:10px'>[Cerrar Sesión]</a>";
 				 ?>
 			<?php elseif(!empty($_POST['user'])): ?>
 				<center>
@@ -44,12 +43,11 @@
 					$consulta="SELECT * FROM USUARIOS WHERE Usuario='".$_POST['user']."';";
 					$resultado=mysqli_query($conexion,$consulta);
 					$fila=mysqli_fetch_array($resultado);
-
 					if(!is_null($fila)){
 						if($fila['Usuario']==$_POST['user'] && $fila['Contraseña']==md5($_POST['pass'])){
 							$_SESSION['Usuario']=$_POST['user'];
 							$_SESSION['CodUsuario']=$fila['CodUsuario'];
-							$_SESSION['ImgUsuario']=$fila['ImgUsuario'];
+                                                        $_SESSION['ImgUsuario']=$fila['ImgUsuario'];
 
 							if ($fila['TipoUsuario']=='Administrador') {
 								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['TipoUsuario']."!!!');</script>";
@@ -57,13 +55,13 @@
 								echo "<script type='text/javascript'>alert('Bienvenido ".$fila['Usuario']."!!!');</script>";
 							}
 
-							echo "<img id='avatar' src='Img_Usuarios/".$fila['ImgUsuario']."'><br>";
+							echo "<img id='avatar' src='Img_Usuarios/".$_SESSION['ImgUsuario']."'><br>";
 							echo "<a href='Entrada/entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
 							echo "<a href='cerrar_session.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
 							echo "<script type='text/javascript'>alert('¡Usuario o Contraseña incorrecta!');
-								var pagina='index.php'
+								var pagina='index.php';
 								function redireccionar(){
 								location.href=pagina;
 							  } 
@@ -72,7 +70,7 @@
 						}
 					}else {
 						echo "<script type='text/javascript'>alert('¡El usuario no existe!');
-								var pagina='index.php'
+								var pagina='index.php';
 								function redireccionar(){
 								location.href=pagina;
 							  } 
@@ -109,7 +107,7 @@
 		</div>
 		<div id="entrada">
 			<?php 
-				$consulta_entradas="SELECT * FROM ENTRADAS";
+				$consulta_entradas="SELECT * FROM ENTRADAS WHERE Publicado='S'";
 				$resultado_entrada=mysqli_query($conexion,$consulta_entradas);
 				if($resultado_entrada==false){
 					echo "<script type=text/javascript>
