@@ -120,9 +120,9 @@
 							}
 
 							echo "<img id='avatar' src='../../".$_SESSION['ImgUsuario']."'><br>";
-							echo "<a href='entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
+							echo "<a href='../entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
-							echo "<a href='index.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<a href='../../index.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
 							echo "<script type='text/javascript'>alert('¡Usuario o Contraseña incorrecta!');
 								var pagina='../../index.php';
@@ -217,7 +217,7 @@
 										function redireccionar(){
 										location.href=pagina;
 										} 
-										setTimeout ('redireccionar()', 500);
+										setTimeout ('redireccionar()', 200);
 									  </script>";						
 									}else{
 							$comentario_consulta="INSERT INTO COMENTARIOS (CodUsuario,IdEntrada,Comentario) VALUES('".$_SESSION['CodUsuario']."','".$_GET['id']."','".$_POST['comentario']."')";
@@ -234,7 +234,7 @@
 										function redireccionar(){
 										location.href=pagina;
 										} 
-										setTimeout ('redireccionar()', 500);
+										setTimeout ('redireccionar()', 200);
 									  </script>";
 							}
 						}	
@@ -247,6 +247,6 @@
 			</div>
 			
 		</div>
-		<div id="pie"></div>
+		<div id="pie"><br></br><br><center><span>Administración de Sistemas Informaticos en Red (2ASIR).</span><br><span>Dirección: Calle San Jacinto, 79 - Sevilla.</span><br><span>Página realizada por Luigui Alvarez Ramirez.</span></center></div>
 </body>
 </html>

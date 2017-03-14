@@ -56,7 +56,7 @@
 							echo "<img id='avatar' src='../Img_Usuarios/".$_SESSION['ImgUsuario']."'><br>";
 							echo "<a href='../Entrada/entradas.php?user=".$fila['Usuario']."'>".$_POST['user']."</a>";
 							echo "<br>";
-							echo "<a href='../cerrar_session.php' style='font-size:10px'>[Cerrar Sesión]</a>";
+							echo "<a href='cerrar_session.php' style='font-size:10px'>[Cerrar Sesión]</a>";
 						}else {
 							echo "<script type='text/javascript'>alert('¡Contraseña incorrecta!');
 								var pagina='index.php';
@@ -86,7 +86,7 @@
     				<span>Contraseña:</span>
     				<input type="password" name="pass" required>
     				<br>
-    				<a style="font-size:13px; margin-left: 70px;" href="http://localhost/Proyecto_IAW/Proyecto-beta/registro.php">Registrate</a>
+    				<a style="font-size:13px; margin-left: 70px;" href="../registro.php">Registrate</a>
     				<input style="width:auto" type="submit" name="sesion" value="Iniciar Sesión">
 				</form>
 			<?php endif ?>
@@ -105,7 +105,7 @@
 		</div>
 		<div id="entrada">
 			<?php 
-				$consulta_entradas="SELECT * FROM ENTRADAS E JOIN PERTENECE P ON E.IdEntrada=P.IdEntrada JOIN CATEGORIAS C ON C.CodCategoria=P.CodCategoria WHERE NombreCategoria='WINDOWS' AND Publicado='S'";
+				$consulta_entradas="SELECT * FROM ENTRADAS E JOIN PERTENECE P ON E.IdEntrada=P.IdEntrada JOIN CATEGORIAS C ON C.CodCategoria=P.CodCategoria WHERE NombreCategoria='PCs' AND Publicado='S'";
 				$resultado_entrada=mysqli_query($conexion,$consulta_entradas);
 				if($resultado_entrada==false){
 					echo "<script type=text/javascript>
@@ -130,6 +130,6 @@
 
 			 ?>
 		</div>
-		<div id="pie"></div>
+		<div id="pie"><br></br><br><center><span>Administración de Sistemas Informaticos en Red (2ASIR).</span><br><span>Dirección: Calle San Jacinto, 79 - Sevilla.</span><br><span>Página realizada por Luigui Alvarez Ramirez.</span></center></div>
 </body>
 </html>

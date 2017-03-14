@@ -4,8 +4,9 @@
 	<title></title>
 	<style type="text/css">
                 body{
-                 background:rgb(46, 74, 117);
-}
+                    background:url(honguitos.jpg);
+
+                }
 		form{
 			width: 600px;
 			margin: 0px auto;
@@ -17,7 +18,7 @@
 			margin: 50px 0px;
                         background:#e7a61a;
                         border-radius:5px;
-
+                        box-shadow: 0px 0px 4px 3px rgba(0,0,0,0.27);
 		}
 		span{
 			display: inline-block;
